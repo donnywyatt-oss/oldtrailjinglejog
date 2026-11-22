@@ -4,107 +4,345 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Crozet Jingle Jog 5K</title>
-  <meta name="description" content="The Crozet Jingle Jog 5K: a festive holiday run and walk in Crozet, Virginia. Race details coming soon.">
+  <meta name="description" content="The Crozet Jingle Jog 5K: a free, festive community run, walk and ride at Old Trail in Crozet, Virginia, benefiting Grace Grocery food bank.">
+  <meta property="og:title" content="Crozet Jingle Jog 5K">
+  <meta property="og:description" content="Free, festive, and open to all: runners, walkers, bikers, strollers and leashed pets. Meet at 11 AM in front of The Lodge at Old Trail.">
+  <meta property="og:image" content="https://crozetjinglejog.com/images/start-crowd.jpg">
+  <meta property="og:url" content="https://crozetjinglejog.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --pine: #12372a;
       --pine-deep: #0b241b;
       --berry: #c8102e;
+      --berry-dark: #a10d25;
       --cream: #fbf6ec;
+      --paper: #fffdf8;
       --gold: #e8b44c;
-      --text: #fbf6ec;
-      --muted: #cfe0d6;
+      --ink: #1d2a24;
+      --ink-soft: #4a5a52;
+      --line: #e6dfd0;
+      --radius: 16px;
     }
-    * { box-sizing: border-box; margin: 0; }
-    html, body { height: 100%; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: "Inter", system-ui, -apple-system, sans-serif;
-      background: radial-gradient(120% 90% at 50% 0%, var(--pine) 0%, var(--pine-deep) 70%);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
       overflow-x: hidden;
-      position: relative;
     }
-    .snow {
-      position: fixed; inset: 0; pointer-events: none; z-index: 0;
-      background-image:
-        radial-gradient(2px 2px at 20px 30px, #fff9 50%, transparent 51%),
-        radial-gradient(2px 2px at 80px 120px, #fff7 50%, transparent 51%),
-        radial-gradient(3px 3px at 150px 60px, #fff8 50%, transparent 51%),
-        radial-gradient(2px 2px at 200px 170px, #fff6 50%, transparent 51%),
-        radial-gradient(3px 3px at 260px 20px, #fff7 50%, transparent 51%);
-      background-size: 300px 200px;
-      animation: fall 14s linear infinite;
+    img { max-width: 100%; display: block; }
+    a { color: var(--berry); }
+    a:hover { color: var(--berry-dark); }
+    h1, h2, h3 { font-family: "Fraunces", Georgia, serif; line-height: 1.1; letter-spacing: -0.01em; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+    section { padding: 72px 0; }
+    .eyebrow {
+      display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--berry); margin-bottom: 12px;
     }
-    @keyframes fall { to { background-position: 0 200px; } }
-    @media (prefers-reduced-motion: reduce) { .snow { animation: none; } }
-    main {
-      position: relative; z-index: 1;
-      flex: 1;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 48px 16px;
-      max-width: 760px; margin: 0 auto; width: 100%;
+    h2 { font-size: clamp(1.9rem, 5vw, 2.8rem); color: var(--pine); margin-bottom: 20px; }
+    .lead { font-size: 1.1rem; color: var(--ink-soft); max-width: 62ch; }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(11, 36, 27, 0.92); backdrop-filter: blur(8px);
     }
-    .badge {
-      display: inline-block;
-      background: var(--berry);
-      color: #fff;
-      font-weight: 600; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 8px 16px; border-radius: 999px;
-      margin-bottom: 24px;
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
+    nav .brand { font-family: "Fraunces", Georgia, serif; font-weight: 900; color: var(--cream); text-decoration: none; font-size: 1.15rem; white-space: nowrap; }
+    nav .brand span { color: var(--gold); }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul a { color: var(--cream); text-decoration: none; font-weight: 500; font-size: 0.95rem; opacity: 0.85; }
+    nav ul a:hover { opacity: 1; color: var(--gold); }
+    @media (max-width: 720px) { nav ul { display: none; } }
+
+    /* Hero */
+    .hero {
+      position: relative; color: var(--cream); text-align: center;
+      padding: 96px 0 88px;
+      background:
+        linear-gradient(180deg, rgba(11,36,27,0.55) 0%, rgba(11,36,27,0.82) 75%, var(--pine-deep) 100%),
+        url("images/start-crowd.jpg") center 35% / cover no-repeat;
     }
-    h1 {
-      font-family: "Fraunces", Georgia, serif;
-      font-weight: 900;
-      font-size: clamp(2.6rem, 10vw, 5.5rem);
-      line-height: 1;
-      letter-spacing: -0.02em;
+    .hero .badge {
+      display: inline-block; background: var(--berry); color: #fff; font-weight: 700;
+      font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 8px 16px; border-radius: 999px; margin-bottom: 24px;
     }
-    h1 .five { color: var(--gold); display: block; font-size: 0.6em; margin-top: 8px; }
-    .lede {
-      margin-top: 24px;
-      font-size: clamp(1.05rem, 3vw, 1.3rem);
-      color: var(--muted);
-      max-width: 34ch;
-      line-height: 1.5;
+    .hero h1 { font-weight: 900; font-size: clamp(2.8rem, 11vw, 6rem); line-height: 0.95; }
+    .hero h1 .five { display: block; color: var(--gold); font-size: 0.5em; margin-top: 10px; }
+    .hero .tagline { margin: 24px auto 0; font-size: clamp(1.05rem, 3vw, 1.3rem); max-width: 40ch; color: #e4efe8; }
+    .facts {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px;
     }
+    .fact {
+      background: rgba(251,246,236,0.12); border: 1px solid rgba(251,246,236,0.25);
+      border-radius: 12px; padding: 14px 20px; min-width: 150px;
+    }
+    .fact .k { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+    .fact .v { font-weight: 600; font-size: 1.05rem; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 32px; }
+    .btn {
+      display: inline-block; padding: 14px 24px; border-radius: 999px; font-weight: 700;
+      text-decoration: none; transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--berry); color: #fff; }
+    .btn-primary:hover { background: var(--berry-dark); color: #fff; }
+    .btn-ghost { background: transparent; color: var(--cream); border: 2px solid rgba(251,246,236,0.6); }
+    .btn-ghost:hover { color: var(--pine-deep); background: var(--cream); }
+
+    /* Details grid */
+    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-top: 36px; }
     .card {
-      margin-top: 40px;
-      background: rgba(251, 246, 236, 0.08);
-      border: 1px solid rgba(251, 246, 236, 0.18);
-      border-radius: 16px;
-      padding: 24px 28px;
-      max-width: 460px; width: 100%;
+      background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 24px;
     }
-    .card h2 {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 1.4rem; margin-bottom: 8px;
+    .card .icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .card h3 { font-size: 1.3rem; color: var(--pine); margin-bottom: 6px; }
+    .card p { color: var(--ink-soft); }
+
+    /* Course */
+    .course { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .two-col { display: grid; gap: 36px; grid-template-columns: 1fr 1fr; align-items: start; }
+    @media (max-width: 820px) { .two-col { grid-template-columns: 1fr; } }
+    .map-frame {
+      border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line);
+      background: #e9efe9; aspect-ratio: 1 / 1;
     }
-    .card p { color: var(--muted); line-height: 1.5; }
-    footer {
-      position: relative; z-index: 1;
-      text-align: center; padding: 24px 16px;
-      font-size: 0.85rem; color: var(--muted);
+    .map-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .map-frame img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
+    .map-caption { font-size: 0.9rem; color: var(--ink-soft); margin-top: 10px; }
+    .map-missing {
+      display: none; height: 100%; align-items: center; justify-content: center; text-align: center;
+      padding: 24px; color: var(--ink-soft);
     }
+    .checklist { list-style: none; margin-top: 20px; }
+    .checklist li { padding-left: 32px; position: relative; margin-bottom: 12px; }
+    .checklist li::before {
+      content: "✓"; position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--pine); color: var(--cream); font-size: 0.75rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; margin-top: 2px;
+    }
+
+    /* Give */
+    .give { background: var(--pine); color: var(--cream); }
+    .give h2 { color: var(--cream); }
+    .give .eyebrow { color: var(--gold); }
+    .give .lead { color: #d6e6dc; }
+    .give a:not(.btn) { color: var(--gold); }
+    .ways { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 32px; }
+    .way { background: rgba(251,246,236,0.08); border: 1px solid rgba(251,246,236,0.2); border-radius: var(--radius); padding: 22px; }
+    .way .icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .way h3 { font-size: 1.2rem; margin-bottom: 6px; color: var(--cream); }
+    .way p { color: #d6e6dc; font-size: 0.97rem; }
+    .stat { font-family: "Fraunces", Georgia, serif; font-size: 3.2rem; font-weight: 900; color: var(--gold); line-height: 1; }
+
+    /* Story */
+    .story-img { border-radius: var(--radius); width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+    .story p + p { margin-top: 16px; }
+    .news {
+      margin-top: 28px; display: flex; gap: 14px; align-items: center;
+      background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px;
+      text-decoration: none; color: var(--ink);
+    }
+    .news:hover { border-color: var(--berry); color: var(--ink); }
+    .news .tag { background: var(--berry); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; white-space: nowrap; }
+    .news strong { display: block; }
+    .news span.src { font-size: 0.88rem; color: var(--ink-soft); }
+
+    /* Gallery */
+    .gallery { display: grid; gap: 12px; grid-template-columns: repeat(4, 1fr); margin-top: 32px; }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; aspect-ratio: 4 / 5; }
+    .gallery .wide { grid-column: span 2; }
+    .gallery .wide img { aspect-ratio: auto; height: 100%; }
+    @media (max-width: 720px) {
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .gallery .wide { grid-column: span 2; }
+      .gallery .wide img { aspect-ratio: 4 / 3; }
+    }
+
+    footer { background: var(--pine-deep); color: #b9cbc0; padding: 40px 0; text-align: center; font-size: 0.92rem; }
+    footer strong { color: var(--cream); font-family: "Fraunces", Georgia, serif; font-size: 1.2rem; display: block; margin-bottom: 6px; }
+    footer a { color: var(--gold); }
   </style>
 </head>
 <body>
-  <div class="snow" aria-hidden="true"></div>
-  <main>
-    <span class="badge">Coming soon</span>
-    <h1>Crozet Jingle Jog<span class="five">5K Run &amp; Walk</span></h1>
-    <p class="lede">Lace up and jingle all the way. A festive holiday 5K in Crozet, Virginia.</p>
-    <div class="card">
-      <h2>Race details on the way</h2>
-      <p>Date, start time, course map and registration will be posted here soon. Check back shortly!</p>
+
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="#top">Jingle Jog <span>5K</span></a>
+      <ul>
+        <li><a href="#details">Details</a></li>
+        <li><a href="#course">Course</a></li>
+        <li><a href="#where">Where</a></li>
+        <li><a href="#give">Give</a></li>
+        <li><a href="#story">Our Story</a></li>
+      </ul>
     </div>
-  </main>
-  <footer>&copy; 2026 Crozet Jingle Jog</footer>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <span class="badge">Free &middot; All welcome</span>
+      <h1>Crozet Jingle Jog<span class="five">5K Run, Walk &amp; Ride</span></h1>
+      <p class="tagline">A festive Old Trail tradition since 2013. Wear your holiday best and jingle all the way.</p>
+      <div class="facts">
+        <div class="fact"><div class="k">Meet at</div><div class="v">11:00 AM</div></div>
+        <div class="fact"><div class="k">Where</div><div class="v">The Lodge at Old Trail</div></div>
+        <div class="fact"><div class="k">Cost</div><div class="v">Free, no sign-up</div></div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#where">Find the start</a>
+        <a class="btn btn-ghost" href="#give">Support Grace Grocery</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="details">
+    <div class="wrap">
+      <span class="eyebrow">The details</span>
+      <h2>Just show up and have fun</h2>
+      <p class="lead">No fee, no registration, no chip, no timing. Come as you are, or better yet, come in costume.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="icon" aria-hidden="true">🕚</div>
+          <h3>Meet at 11 AM</h3>
+          <p>Gather in front of The Lodge at Old Trail in Crozet. We start together from there.</p>
+        </div>
+        <div class="card">
+          <div class="icon" aria-hidden="true">🎁</div>
+          <h3>Totally free</h3>
+          <p>No fee and no registration. Just bring yourself, your friends and some holiday cheer.</p>
+        </div>
+        <div class="card">
+          <div class="icon" aria-hidden="true">🚲</div>
+          <h3>All are welcome</h3>
+          <p>Runners, walkers, bikers, strollers and leashed pets. Every pace and every age.</p>
+        </div>
+        <div class="card">
+          <div class="icon" aria-hidden="true">🦌</div>
+          <h3>Go your own distance</h3>
+          <p>Do the whole 5K or just part of the course. There's no clock and no finish-line pressure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="course" id="course">
+    <div class="wrap two-col">
+      <div>
+        <span class="eyebrow">The course</span>
+        <h2>A loop through Old Trail</h2>
+        <p class="lead">The 5K course starts and finishes at The Lodge and winds through Old Trail's neighborhood streets and park, along Old Trail Drive, Brook View Road, Golf Drive and Rowcross Street.</p>
+        <ul class="checklist">
+          <li>Start and finish at The Lodge at Old Trail</li>
+          <li>Neighborhood streets plus a stretch by the park</li>
+          <li>Stroller- and bike-friendly</li>
+          <li>Cut it short anytime and head back to the start</li>
+        </ul>
+      </div>
+      <div>
+        <div class="map-frame">
+          <img src="images/course-map.png" alt="Map of the Jingle Jog 5K course through Old Trail in Crozet"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="map-missing">Course map coming soon</div>
+        </div>
+        <p class="map-caption">Follow the arrows: the green dot marks the start and finish at The Lodge.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="where">
+    <div class="wrap two-col">
+      <div>
+        <span class="eyebrow">Where to meet</span>
+        <h2>In front of The Lodge at Old Trail</h2>
+        <p class="lead">Look for the crowd in Santa hats. We meet out front of The Lodge at Old Trail in Crozet, Virginia, at 11 AM.</p>
+        <div class="cta-row" style="justify-content:flex-start">
+          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=The+Lodge+at+Old+Trail+Crozet+VA" target="_blank" rel="noopener">Get directions</a>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe title="Map showing The Lodge at Old Trail in Crozet, Virginia"
+                src="https://maps.google.com/maps?q=The%20Lodge%20at%20Old%20Trail%2C%20Crozet%2C%20VA&amp;z=16&amp;output=embed"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="give" id="give">
+    <div class="wrap">
+      <span class="eyebrow">Race beneficiary</span>
+      <h2>Running for Grace Grocery</h2>
+      <div class="two-col">
+        <p class="lead"><a href="https://www.crozetunitedmethodist.com/grace-grocery/" target="_blank" rel="noopener">Grace Grocery</a> is Crozet's food bank, serving neighbors right here in our community. The Jingle Jog is free, so please consider giving to help a neighbor in need this season.</p>
+        <div>
+          <div class="stat">~80</div>
+          <p style="color:#d6e6dc">local households served on average every week</p>
+        </div>
+      </div>
+      <div class="ways">
+        <div class="way">
+          <div class="icon" aria-hidden="true">💵</div>
+          <h3>Cash on race day</h3>
+          <p>Bring a cash donation to the start. Every dollar helps stock the shelves.</p>
+        </div>
+        <div class="way">
+          <div class="icon" aria-hidden="true">🥫</div>
+          <h3>Bring a canned good</h3>
+          <p>Drop off a can or non-perishable item for a neighbor in need.</p>
+        </div>
+        <div class="way">
+          <div class="icon" aria-hidden="true">💻</div>
+          <h3>Give online</h3>
+          <p>Donate anytime. Please note <strong>&ldquo;Grace Grocery&rdquo;</strong> with your gift.</p>
+          <p style="margin-top:14px"><a class="btn btn-primary" href="https://onrealm.org/crozetunitedmethodist/-/form/give/default" target="_blank" rel="noopener">Donate online</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="story">
+    <div class="wrap two-col">
+      <div class="story">
+        <span class="eyebrow">Our story</span>
+        <h2>A Crozet tradition since 2013</h2>
+        <p>The Jingle Jog began in 2013, started by John Anderson, owner of the Crozet Running Shop. It quickly became a holiday favorite for families and friends across town.</p>
+        <p>When the Crozet Running Shop closed, Old Trail neighbors and friends EB Enfield and Louise Wyatt and their families stepped up as volunteer race directors in 2021, keeping the jingle going for a new generation of runners, walkers and riders.</p>
+        <a class="news" href="https://www.29news.com/2025/12/25/crozet-jingle-jog-returns-12th-year/" target="_blank" rel="noopener">
+          <span class="tag">In the news</span>
+          <span><strong>Crozet Jingle Jog returns for 12th year</strong><span class="src">29 News &middot; December 2025</span></span>
+        </a>
+      </div>
+      <img class="story-img" src="images/emcee.jpg" alt="Race director in a Santa hat and Hawaiian shirt making announcements with a microphone before the Jingle Jog" loading="lazy">
+    </div>
+  </section>
+
+  <section id="photos" style="padding-top:0">
+    <div class="wrap">
+      <span class="eyebrow">Jingle Jogs past</span>
+      <h2>Santa hats, bikes and good cheer</h2>
+      <div class="gallery">
+        <div class="wide"><img src="images/refreshments.jpg" alt="Runners gathering under autumn trees by a festive refreshment table" loading="lazy"></div>
+        <img src="images/bikers-sun.jpg" alt="Kids on bikes lined up in the sunshine before the start" loading="lazy">
+        <img src="images/bikers-lineup.jpg" alt="Young riders in helmets waiting at the start line" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <strong>Crozet Jingle Jog 5K</strong>
+      A free community event at Old Trail in Crozet, Virginia, organized by volunteers.<br>
+      Benefiting <a href="https://www.crozetunitedmethodist.com/grace-grocery/" target="_blank" rel="noopener">Grace Grocery</a>.
+    </div>
+  </footer>
+
 </body>
 </html>
