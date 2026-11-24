@@ -6,7 +6,7 @@
   <title>Crozet Jingle Jog 5K</title>
   <meta name="description" content="The Crozet Jingle Jog 5K on Christmas Day: a free, festive community run, walk and ride at Old Trail in Crozet, Virginia, benefiting Grace Grocery food bank.">
   <meta property="og:title" content="Crozet Jingle Jog 5K">
-  <meta property="og:description" content="Free, festive, and open to all: runners, walkers, bikers, strollers and leashed pets. Christmas Day, December 25. Race starts at 11 AM on Claremont Lane in front of The Lodge at Old Trail; please arrive a few minutes early. Plenty of parking right next to the start.">
+  <meta property="og:description" content="Free, festive, and open to all: runners, walkers, bikers, strollers and leashed pets. Christmas Day, December 25. Race starts at 11 AM on Claremont Lane in front of The Lodge at Old Trail; please arrive a few minutes early. Rain or shine. Plenty of parking right next to the start.">
   <meta property="og:image" content="https://crozetjinglejog.com/images/start-crowd.jpg">
   <meta property="og:url" content="https://crozetjinglejog.com/">
   <link rel="canonical" href="https://crozetjinglejog.com/">
@@ -158,6 +158,13 @@
     .card h3 { font-size: 1.3rem; color: var(--pine); margin-bottom: 6px; }
     .card p { color: var(--ink-soft); }
 
+    .weather-note {
+      display: flex; gap: 14px; align-items: center; margin-top: 20px;
+      background: var(--pine); color: var(--cream); border-radius: var(--radius); padding: 18px 22px;
+    }
+    .weather-note .icon { font-size: 1.8rem; line-height: 1; }
+    .weather-note strong { color: var(--gold); }
+
     /* Course */
     .course { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .two-col { display: grid; gap: 36px; grid-template-columns: 1fr 1fr; align-items: start; }
@@ -260,7 +267,7 @@
 
   <header class="hero" id="top">
     <div class="wrap">
-      <span class="badge">Free &middot; All welcome</span>
+      <span class="badge">Free &middot; All welcome &middot; Rain or shine</span>
       <h1>Crozet Jingle Jog<span class="five">5K Run, Walk &amp; Ride</span></h1>
       <p class="tagline">A festive Old Trail tradition since 2013. Wear your holiday best and jingle all the way.</p>
       <div class="facts">
@@ -302,6 +309,10 @@
           <h3>Go your own distance</h3>
           <p>Do the whole 5K or just part of the course. There's no clock and no finish-line pressure.</p>
         </div>
+      </div>
+      <div class="weather-note">
+        <span class="icon" aria-hidden="true">&#x2614;</span>
+        <p><strong>Rain or shine, warm or cold, the Jingle Jog happens!</strong> We run regardless of the weather, so check the forecast and dress for the day.</p>
       </div>
     </div>
   </section>
